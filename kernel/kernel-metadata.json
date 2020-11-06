@@ -1,0 +1,13 @@
+{
+  "id": "snufkin77/PROJECT_NAME-auto-kernel",
+  "title": "PROJECT_NAME Auto Kernel",
+  "code_file": "auto-kernel.py",
+  "language": "python",
+  "kernel_type": "script",
+  "is_private": "true",
+  "enable_gpu": "false",
+  "enable_internet": "false",
+  "dataset_sources": ["snufkin77/PROJEST_NAME-code", "snufkin77/PROJECT_NAME-models"],
+  "competition_sources": [],
+  "kernel_sources": []
+}

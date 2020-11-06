@@ -1,0 +1,4 @@
+.idea/
+__pycache__/
+.kaggle/kaggle.json
+datasets/
