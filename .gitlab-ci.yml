@@ -1,0 +1,21 @@
+image: python:latest
+
+variables:
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+  KAGGLE_CONFIG_DIR: "$CI_PROJECT_DIR/.kaggle"
+
+before_script:
+  - pip install kaggle
+
+deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    - dt=`date -d '+1 hour' '+%d/%m/%Y_%H:%M:%S'`
+    - kaggle datasets version -p code -m "$dt"
+    - kaggle datasets version -p models -m "$dt"
+    - echo "# $dt" >> kernel/auto-kernel.py
+    - echo "Waiting for the datasets to be reloaded on kaggle.com ..."
+    - sleep 30s
+    - kaggle kernels push -p kernel
